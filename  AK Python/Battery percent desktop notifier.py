@@ -1,0 +1,14 @@
+import psutil
+
+
+battery = psutil.sensors_battery()
+percent = battery.percent
+from pynotifier import Notification
+
+Notification(
+        title="Battery Percentage.",
+        description=str(percent) + "% Battery remaining.",
+        duration=5,  # Duration in seconds
+    ).send()
+
+
